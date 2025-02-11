@@ -19,5 +19,8 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('loans', views.loans, name='loans'),
+    path('IR', views.IR, name='IR'),
+    path('stocks/<ticker>/',views.stocks, name='stocks')
     
 ]
