@@ -14,7 +14,6 @@ def IR(request):
 
 def stocks(request, ticker):
     """Página que contém uma ação e análises feitas com data science e notícias conseguidas por web scrapping sobre essa ação"""
-    context = {"name": algo}
-    return render(request, 'FBFinances/stocks.html',context)
+    return render(request, 'FBFinances/stocks.html')
 
 # Create your views here.
