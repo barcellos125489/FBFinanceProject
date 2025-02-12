@@ -1,19 +1,27 @@
 from django.shortcuts import render
 
 def index(request):
-    """Página principal"""
+    """Landing page"""
     return render(request, 'FBFinances/index.html')
 
 def loans(request):
-    """Página que contém todos os tipos de empréstimos e seus resultados"""
+    """Page that contains all loans, finance and their calculations"""
     return render(request, 'FBFinances/loans.html')
 
 def IR(request):
-    """Página que contém o cálculo do imposto de renda de acordo com seu salário"""
+    """Page that contains income tax calculations"""
     return render(request, 'FBFinances/IR.html')
 
 def stocks(request, ticker):
-    """Página que contém uma ação e análises feitas com data science e notícias conseguidas por web scrapping sobre essa ação"""
+    """Page that contains a stock and its analysis made with data science along with news about it reached with web scrapping"""
     return render(request, 'FBFinances/stocks.html')
+
+def cripto(request, coin):
+    """Page that contains a cripto coin and its analysis made with data science along with news about it reached with web scrapping"""
+    return render(request, 'FBFinances/coins.html')
+
+def tracksheet(request, username):
+    """Page that contains informations about the user's moneyflow"""
+    return render(request, 'FBFinances/tracksheet.html')
 
 # Create your views here.
