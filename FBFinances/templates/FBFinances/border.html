@@ -1,3 +1,14 @@
-<a href="{% url 'index' %}"><h1>essa é uma parte herdada em comum com outras páginas</h1></a>
+<a href="{% url 'index' %}"><h1>Essa é uma parte herdada em comum com outras páginas</h1></a>
+
+{% if user.is_authenticated%}
+
+    <h3>Olá, {{user.username}}</h3>
+    <a href="{% url 'logout' %}">Sair</a>
+
+{% else%}
+
+    <a href="{% url 'login' %}">Entrar</a>
+
+{% endif%}
 
 {% block content %}{% endblock content%}

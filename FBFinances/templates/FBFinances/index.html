@@ -5,7 +5,10 @@
 
 <h2>Links das páginas:</h2>
 <li><a href="{% url 'loans' %}">Empréstimos</a></li>
-<li><a href="{% url 'stocks' 'algo' %}">Ações</a></li>
+<li><a href="{% url 'stocks' 'someticker' %}">Ações</a></li>
 <li><a href="{% url 'IR' %}">Imposto de Renda</a></li>
+<li><a href="{% url 'coins' 'somecoin' %}">Criptomoedas</a></li>
+<li><a href="{% url 'tracksheet' 'someuser' %}">Planilha financeira</a></li>
+
 
 {% endblock content%}

@@ -1,0 +1,18 @@
+{% extends "FBFinances/border.html"%}
+
+{% block content %}
+
+    {% if form.errors %}
+        <p>Seu login ou senha estão incorretos</p>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <button name="submit">Entrar</button>
+        <input type="hidden" name="next" value="{% url 'index' %}">
+    </form>
+    <a href="{% url 'signin' %}">Não possui uma conta? Cadastre-se!</a>
+
+{% endblock content %}

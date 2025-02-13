@@ -16,7 +16,7 @@ def stocks(request, ticker):
     """Page that contains a stock and its analysis made with data science along with news about it reached with web scrapping"""
     return render(request, 'FBFinances/stocks.html')
 
-def cripto(request, coin):
+def coins(request, coin_name):
     """Page that contains a cripto coin and its analysis made with data science along with news about it reached with web scrapping"""
     return render(request, 'FBFinances/coins.html')
 
