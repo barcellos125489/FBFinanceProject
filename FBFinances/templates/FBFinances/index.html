@@ -1,14 +1,18 @@
 {% extends "FBFinances/border.html" %}
 
 {% block content %}
-<h1>Essa é a página index/home inicial do meu projeto de finanças</h1>
+    <h1>Essa é a página index/home inicial do meu projeto de finanças</h1>
 
-<h2>Links das páginas:</h2>
-<li><a href="{% url 'loans' %}">Empréstimos</a></li>
-<li><a href="{% url 'stocks' 'someticker' %}">Ações</a></li>
-<li><a href="{% url 'IR' %}">Imposto de Renda</a></li>
-<li><a href="{% url 'coins' 'somecoin' %}">Criptomoedas</a></li>
-<li><a href="{% url 'tracksheet' 'someuser' %}">Planilha financeira</a></li>
+    <h2>Links das páginas:</h2>
+    <li><a href="{% url 'loans' %}">Empréstimos/Financiamentos</a></li>
+    <li><a href="{% url 'stocks' 'amzn' %}">Ações</a></li>
+    <li><a href="{% url 'IR' %}">Imposto de Renda</a></li>
+    <li><a href="{% url 'coins' 'somecoin' %}">Criptomoedas</a></li>
 
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'tracksheet' user.id %}">Planilha financeira</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}">Planilha financeira</a></li>
+    {% endif %}
 
 {% endblock content%}

@@ -2,6 +2,43 @@
 
 {% block content %}
 
-<h1>Essa é a página onde haverão informações da vida financeira do usuário</h1>
+    <h1>Essa é a página onde haverão informações da vida financeira do usuário</h1>
+    <hr>
+    <h2>Seus empréstimos:</h2>
+{% if not loans %}
+    <h3>Não há nenhum empréstimo cadastrado na sua conta</h3>
+{% else %}
+        {% for view_loan in loans %}
+        <li>{{view_loan.loan_name}}</li>
+    {% endfor %}
+{%endif%}
+    <hr>
+    <h2>Seus financiamentos:</h2>
+    {% if not finances %}
+        <h3>Não há nenhum financiamento cadastrado na sua conta</h3>
+    {% else %}
+            {% for view_finance in finances %}
+            <li>{{view_finance.finance_name}}</li>
+        {% endfor %}
+    {%endif%}
+    <hr>
+    <h2>Seus gastos:</h2>
+    {% if not expenses %}
+        <h3>Não há nenhum gasto cadastrado na sua conta</h3>
+    {% else %}
+            {% for view_expense in expenses %}
+            <li>{{view_expense.expense_name}}</li>
+        {% endfor %}
+    {%endif%}
+    <hr>
+    <h2>Sua renda:</h2>
+    {% if not incomes %}
+        <h3>Não há nenhuma renda cadastrada na sua conta</h3>
+    {% else %}
+            {% for view_income in incomes %}
+            <li>{{view_income.income_name}}</li>
+        {% endfor %}
+{%endif%}
+
 
 {% endblock content %}

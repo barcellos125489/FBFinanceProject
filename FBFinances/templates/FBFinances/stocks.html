@@ -2,6 +2,10 @@
 
 {% block content %}
 
-<h1>Essa é a página onde haverão informações e análise das ações</h1>
+    <h1>Essa é a página onde haverão informações e análise das ações</h1>
+
+    {% for chave,valor in ticker_info.info.items %}
+        <li>{{chave}}: {{valor}}</li>
+    {% endfor %}
 
 {% endblock content %}
