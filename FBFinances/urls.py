@@ -21,8 +21,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('loans', views.loans, name='loans'),
     path('IR', views.IR, name='IR'),
-    path('stocks/<str:ticker>/',views.stocks, name='stocks'),
+    path('stocks/<str:ticker_name>/',views.stocks, name='stocks'),
     path('cripto/<str:coin_name>/',views.coins, name='coins'),
-    path('tracksheet/<int:userid>/',views.tracksheet, name='tracksheet')
+    path('tracksheet/<int:userid>/',views.tracksheet, name='tracksheet'),
+    path('perfil/<int:userid>/', views.profile, name='profile')
     
 ]

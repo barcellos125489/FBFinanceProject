@@ -3,6 +3,7 @@
 {% block content %}
 
     <h1>Essa é a página onde haverão informações da vida financeira do usuário</h1>
+
     <hr>
     <h2>Seus empréstimos:</h2>
 {% if not loans %}
@@ -12,6 +13,9 @@
         <li>{{view_loan.loan_name}}</li>
     {% endfor %}
 {%endif%}
+    <button>Adicionar Empréstimo</button>
+    <button>Alterar Empréstimo</button>
+    
     <hr>
     <h2>Seus financiamentos:</h2>
     {% if not finances %}
@@ -21,6 +25,9 @@
             <li>{{view_finance.finance_name}}</li>
         {% endfor %}
     {%endif%}
+    <button>Adicionar Financiamento</button>
+    <button>Alterar Financiamento</button>
+
     <hr>
     <h2>Seus gastos:</h2>
     {% if not expenses %}
@@ -30,15 +37,19 @@
             <li>{{view_expense.expense_name}}</li>
         {% endfor %}
     {%endif%}
+    <button>Adicionar Gasto</button>
+    <button>Alterar Gasto</button>
+
     <hr>
     <h2>Sua renda:</h2>
     {% if not incomes %}
         <h3>Não há nenhuma renda cadastrada na sua conta</h3>
     {% else %}
-            {% for view_income in incomes %}
-            <li>{{view_income.income_name}}</li>
+        {% for view_income in incomes %}
+        <li>{{view_income.income_name}}</li>
         {% endfor %}
-{%endif%}
-
+    {%endif%}
+    <button>Adicionar Renda</button>
+    <button>Alterar Renda</button>
 
 {% endblock content %}

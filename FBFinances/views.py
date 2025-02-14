@@ -17,16 +17,18 @@ def IR(request):
     """Page that contains income tax calculations"""
     return render(request, 'FBFinances/IR.html')
 
-def stocks(request, ticker):
+def stocks(request, ticker_name):
     """Page that contains a stock and its analysis made with data science along with news about it reached with web scrapping"""
-    ticker_info = yf.Ticker(ticker)
-    context = {'ticker_info': ticker_info}
+    ticker = yf.Ticker(ticker_name)
+    context = {'ticker': ticker}
 
     return render(request, 'FBFinances/stocks.html',context)
 
 def coins(request, coin_name):
     """Page that contains a cripto coin and its analysis made with data science along with news about it reached with web scrapping"""
-    return render(request, 'FBFinances/coins.html')
+    coin = yf.Ticker(coin_name)
+    context = {'coin': coin }
+    return render(request, 'FBFinances/coins.html',context)
 
 @login_required
 def tracksheet(request, userid):
@@ -61,5 +63,13 @@ def tracksheet(request, userid):
 
     context = {'loans':loans,'incomes':incomes,'finances':finances, 'expenses':expenses}
     return render(request, 'FBFinances/tracksheet.html',context)
+
+@login_required
+def profile(request, userid):
+    """Page that contains data about the user and the option to change data"""
+    if request.user.id != userid:
+        raise Http404
+    
+    return render(request, 'FBFinances/profile.html')
 
 # Create your views here.

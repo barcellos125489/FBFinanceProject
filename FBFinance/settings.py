@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'FBFinances',
     'users',
+
+    #apps de terceiros
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +138,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Login page url
 LOGIN_URL = '/users/login'
+
+BOOTSTRAP5 = {
+    'include_jquery': True,
+}

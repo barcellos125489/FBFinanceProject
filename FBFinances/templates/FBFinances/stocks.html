@@ -4,7 +4,12 @@
 
     <h1>Essa é a página onde haverão informações e análise das ações</h1>
 
-    {% for chave,valor in ticker_info.info.items %}
+    <h1>{{ticker.info.longName}} / {{ticker.info.symbol}}</h1>
+    <h2>Preço atual: {{ticker.info.currentPrice}} R$</h2>
+
+
+    <h3>Outras informações:</h3>
+    {% for chave,valor in ticker.info.items %}
         <li>{{chave}}: {{valor}}</li>
     {% endfor %}
 

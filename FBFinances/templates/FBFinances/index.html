@@ -5,9 +5,9 @@
 
     <h2>Links das páginas:</h2>
     <li><a href="{% url 'loans' %}">Empréstimos/Financiamentos</a></li>
-    <li><a href="{% url 'stocks' 'amzn' %}">Ações</a></li>
+    <li><a href="{% url 'stocks' 'BBAS3.SA' %}">Ações</a></li>
     <li><a href="{% url 'IR' %}">Imposto de Renda</a></li>
-    <li><a href="{% url 'coins' 'somecoin' %}">Criptomoedas</a></li>
+    <li><a href="{% url 'coins' 'btc' %}">Criptomoedas</a></li>
 
     {% if user.is_authenticated %}
         <li><a href="{% url 'tracksheet' user.id %}">Planilha financeira</a></li>

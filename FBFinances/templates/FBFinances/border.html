@@ -1,14 +1,51 @@
-<a href="{% url 'index' %}"><h1>Essa é uma parte herdada em comum com outras páginas</h1></a>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-{% if user.is_authenticated%}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Aplicação para ajudar a tomar decisões financeiras">
+        <meta name="keywords" content="Finanças, Empréstimo, Finança, Empréstimos, Mercado financeiro, ações, criptomoedas ">
+        <meta name="author" content="Felipe Barcellos">
 
-    <h3>Olá, {{user.username}}</h3>
-    <a href="{% url 'logout' %}">Sair</a>
+        <title>Homepage</title>
 
-{% else%}
+        {% load bootstrap5 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
 
-    <a href="{% url 'login' %}">Entrar</a>
+    <body>
+        <div class="navbar navbar-expand-lg navbar-dark bg-primary ">
+            <div class="container-fluid">
+                <a href="{% url 'index' %}" class="navbar-brand">Homepage</a>
 
-{% endif%}
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <div class="navbar-text">
+                        {% if user.is_authenticated%}
+                            
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{% url 'profile' user.id %}">Olá, {{user.username}}</a>
+                                </li> 
+                                <li class="nav-item">
+                                    <a href="{% url 'logout' %}" class="nav-link active" >Sair</a>
+                                </li>
+                            </ul>
+                        
+                        {% else%}
+                        
+                            <a href="{% url 'login' %}" class="nav-link active">Entrar</a>
+                        
+                        {% endif%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
 
-{% block content %}{% endblock content%}
+<div>
+    {% block content %}{% endblock content%}
+</div>
